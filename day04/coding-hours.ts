@@ -5,3 +5,4 @@ let avgWeekly: number= 52;
 
 console.log(avgCode * weekly * semester)
 console.log(avgWeekly * semester)
+console.log( (avgCode * weekly * semester) / (avgWeekly * semester) )
