@@ -55,9 +55,8 @@ while (credits >= 50 && isBonus==false) {
 console.log(c);
 console.log(credits);
 console.log(isBonus);
-    }
-    }
-        
+        }
+    }       
 }
 
 
