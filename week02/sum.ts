@@ -21,3 +21,19 @@ cutePuppy.forEach(function(puppy) {
 
     console.log(puppy);
 })
+
+
+let diffArray: Array<string | boolean> = ["Ege", true]
+
+
+diffArray.splice(0,1, "marks")
+
+
+
+let odds: number [] = [1, 2, 3, 4, 5].filter(function(item){
+
+return item % 2 !== 0})
+
+console.log(odds)
+
+
