@@ -1,7 +1,7 @@
 'use strict';
 
-const myCanvasWidth: number = 600;
-const myCanvasHeigth: number = 600;
+const myCanvasWidth: number = 700;
+const myCanvasHeigth: number = 700;
 const canvas = document.querySelector('.main-canvas') as HTMLCanvasElement;
 canvas.width = myCanvasWidth;
 canvas.height = myCanvasHeigth;
@@ -15,19 +15,33 @@ const ctx = canvas.getContext('2d');
 // Create a loop that fills the canvas with a rainbow of colored squares.
 
 
-let colorz: string[]= ["violet", "indigo", "blue", "green", "yellow", "orange", "red"]
+let colorz: string[]= ["violet", "indigo", "blue", "green", "yellow", "orange", "red"];
+ctx.fillStyle= colorz[6]
+ctx.fillRect(myCanvasWidth/2 - (700/2), myCanvasHeigth/2 - (700/2), 700, 700)
+ctx.fillStyle= colorz[5]
+ctx.fillRect(myCanvasWidth/2 - (600/2), myCanvasHeigth/2 - (600/2), 600, 600)
+ctx.fillStyle= colorz[4]
+ctx.fillRect(myCanvasWidth/2 - (500/2), myCanvasHeigth/2 - (500/2), 500, 500)
+ctx.fillStyle= colorz[3]
+ctx.fillRect(myCanvasWidth/2 - (400/2), myCanvasHeigth/2 - (400/2), 400, 400)
+ctx.fillStyle= colorz[2]
+ctx.fillRect(myCanvasWidth/2 - (300/2), myCanvasHeigth/2 - (300/2), 300, 300)
+ctx.fillStyle= colorz[1]
+ctx.fillRect(myCanvasWidth/2 - (200/2), myCanvasHeigth/2 - (200/2), 200, 200)
+ctx.fillStyle= colorz[0]
+ctx.fillRect(myCanvasWidth/2 - (100/2), myCanvasHeigth/2 - (100/2), 100, 100)
 
-function sqDrawer(size){
+/* function sqDrawer(i){
     
-    for(let i: number= 6; i>=0; i--){
-        ctx.fillStyle= colorz[i];
-        ctx.fillRect(myCanvasWidth/2 -(size/2), myCanvasHeigth/2 -(size/2), size, size);
+    ctx.fillStyle= colorz[i];
+    for(let i: number= 600; i>=0; i--){
+        ctx.fillRect(myCanvasWidth/2 -(i/2), myCanvasHeigth/2 -(i/2), i, i);
         
    }
 
 }
 
-sqDrawer(600);
+sqDrawer(600); */
 
 
 

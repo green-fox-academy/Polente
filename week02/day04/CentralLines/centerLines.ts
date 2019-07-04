@@ -12,7 +12,7 @@ const ctx = canvas.getContext('2d');
 function lol(j, k){
     
     while(k<=620){
-        
+        ctx.strokeStyle="red"
         ctx.beginPath();
         ctx.moveTo(myCanvasWidth/2, myCanvasHeigth/2);
         
@@ -25,6 +25,7 @@ function lol(j, k){
     }
     while(k>=0){
         
+        ctx.strokeStyle="blue"
         ctx.beginPath();
         ctx.moveTo(myCanvasWidth/2, myCanvasHeigth/2);
         
@@ -37,6 +38,7 @@ function lol(j, k){
     }
     while(j>=0){
         
+        ctx.strokeStyle="green"
         ctx.beginPath();
         ctx.moveTo(myCanvasWidth/2, myCanvasHeigth/2);
         
@@ -49,6 +51,7 @@ function lol(j, k){
     }
     while(j<=620){
         
+        ctx.strokeStyle="black"
         ctx.beginPath();
         ctx.moveTo(myCanvasWidth/2, myCanvasHeigth/2);
         
