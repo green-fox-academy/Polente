@@ -6,9 +6,17 @@ const ctx = canvas.getContext('2d');
 
 ctx.fillStyle= "#EB01A5"
 ctx.beginPath();
-ctx.arc(100, 100, 50, 0, Math.PI, true)
-ctx.arc(200, 100, 50, 0, Math.PI, true)
-ctx.arc(95, 100, 155, 0, Math.PI/2.67)
-ctx.arc(200, 100, 150, 0.61*Math.PI, Math.PI)
+ctx.arc(106, 102, 50, Math.PI*2, Math.PI, true)
+ctx.arc(192, 102, 50, Math.PI*2, Math.PI, true)
+ctx.arc(102, 95, 140, 0, Math.PI/2.8)
+ctx.arc(196, 95, 140, 0.61*Math.PI, Math.PI)
 ctx.fill();
+ctx.closePath();
 
+ctx.beginPath();
+ctx.strokeStyle= "#EB01A5"
+ctx.moveTo(56.5,98);
+ctx.lineWidth= 9;
+ctx.lineTo(241.8,98);
+ctx.stroke();
+ctx.closePath();
