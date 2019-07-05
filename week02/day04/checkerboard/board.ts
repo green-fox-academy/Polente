@@ -15,12 +15,11 @@ function boardDraw(a, b) {
   }
 }
 
-for (let j: number = 0; j < 17; j++) {
+for(let j: number= 0; j<620; j++){
 
-  if(j%2==0){
-  boardDraw(size, j * size * 2);}
-  else{
 
-    ctx.moveTo(j*size*2)
-  }
+  boardDraw(size, j * size * 2);
+
 }
+
+
