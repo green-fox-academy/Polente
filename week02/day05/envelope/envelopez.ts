@@ -7,16 +7,6 @@ canvas.width = myCanvasWidth;
 canvas.height = myCanvasHeigth;
 const ctx = canvas.getContext('2d');
 
-/* for(let i: number= 0; i< 21; i++){
-    
-    ctx.beginPath();
-    ctx.strokeStyle="blue"
-    ctx.moveTo(i*35,0);
-    ctx.lineTo(myCanvasWidth, i*35);
-    ctx.stroke();
-
-} */
-
 let k: number= 0
 
 for(let i: number= 10; i>0; i--){

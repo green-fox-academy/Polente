@@ -1,6 +1,7 @@
 'use strict'
 
 import { Animal } from './animals';
+import { Flyable } from '../Flyable/flyable';
 
 class Mammals extends Animal {
     name: string;
@@ -24,7 +25,7 @@ class Mammals extends Animal {
 
 }
 
-class Bird extends Animal {
+class Bird extends Animal implements Flyable {
     name: string;
     private type: string;
     breedType: string = 'laying eggs.'
@@ -42,6 +43,12 @@ class Bird extends Animal {
     }
     breed(): void {
         console.log(`A ${this.name} is breeding by ${this.breedType}`)
+    }
+    fly(): void {
+        console.log(`${this.name} is flying!`);
+    }
+    land(): void {
+        console.log(`${this.name} has landed.`);
     }
 }
 
@@ -65,6 +72,7 @@ class Reptile extends Animal {
         console.log(`A ${this.name} is breeding by ${this.breedType}`)
     }
 }
+export { Bird };
 
 let croc: Reptile = new Reptile("Crocie", 'reptile', 'male', 12);
 console.log(croc);
