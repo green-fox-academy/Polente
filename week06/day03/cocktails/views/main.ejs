@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Cocktail List</title>
+</head>
+
+<body>
+    <ul>
+        <% for(let i = 0; i < cocktail.length; i++){%>
+        <li><%= Object.values(cocktail[i])[0]%></li>
+        <%}%>
+    </ul>
+</body>
+
+</html>
