@@ -1,0 +1,62 @@
+body {
+    background-color: rgb(235, 235, 235);
+    font-family: 'B612 Mono';
+}
+
+div {
+    margin: auto;
+    padding: 20px;
+    width: 25%;
+    width: 600px;
+    height: 600px;
+    background-color: #fff;
+}
+
+img {
+    margin-left: 22%;
+}
+
+.pass {
+    position: absolute;
+    margin-left: 30%;
+    TOP: 480px;
+
+}
+
+p {
+    margin-top: 30px;
+    margin-left: 50px;
+    font-weight: 0;
+    font-size: 40px;
+}
+
+label {
+    display: block;
+    margin: 10px 50px;
+    font-size: 16px;
+}
+
+input {
+    padding: 10px;
+    padding-right: 120px;
+    font-size: 30px;
+    margin: 10px 50px;
+    box-shadow: 5px 10px #0000;
+    border-radius: 3px;
+}
+
+
+input[type=submit] {
+    display: block;
+    padding: 10px 30px;
+    background-color: rgb(51, 51, 51);
+    font-size: 18px;
+    font-weight: 300;
+    color: #fff;
+    border-radius: 20px;
+}
+
+input:focus {
+    border: solid 2px rgb(100, 168, 89);
+    outline: none;
+}
