@@ -1,0 +1,15 @@
+.row {
+    display: flex;
+    height: 25vh;
+    justify-content: center;
+}
+
+.cell {
+    border: 1px solid white;
+    flex-basis: 25%;
+    background-size: cover;
+}
+
+.cell:hover {
+    cursor: pointer;
+}
