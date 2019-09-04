@@ -17,3 +17,25 @@ test('groot endpoint', t => {
       t.end();
     });
 });
+test('groot status fail', t => {
+  // TODO: implement it
+  request(app)
+    .get('/groot')
+    .end((err, resp) => {
+      if (err) throw err;
+      t.equal(resp.status, 400);
+      t.end();
+    });
+});
+test('groot status fail', t => {
+  // TODO: implement it
+  request(app)
+    .get('/groot?message=')
+    .set('Accept', 'application/json')
+    .expect('content-type', 'application/json; charset=utf-8')
+    .end((err, resp) => {
+      if (err) throw err;
+      t.same(resp.body, { error: 'I am Groot!' });
+      t.end();
+    });
+});
