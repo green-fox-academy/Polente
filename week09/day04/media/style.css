@@ -1,0 +1,24 @@
+#container {
+  display: flex;
+}
+.first {
+  background: green;
+  height: 100px;
+  flex: 1;
+}
+.second {
+  background: rgb(255, 238, 0);
+  height: 100px;
+  flex: 2;
+}
+.third {
+  background: rgb(151, 0, 151);
+  height: 100px;
+  flex: 1;
+}
+
+@media screen and (max-width: 600px) {
+  #container {
+    display: block;
+  }
+}

@@ -1,0 +1,23 @@
+body {
+  background-color: rgb(80, 148, 229);
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+  align-content: center;
+  background-color: #dddddd;
+  margin: auto;
+  border-radius: 5px;
+}
+th {
+  background-color: black;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+td {
+  border: 1px solid #464646;
+  text-align: left;
+  padding: 8px;
+}
