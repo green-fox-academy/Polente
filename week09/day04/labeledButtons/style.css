@@ -1,0 +1,138 @@
+body {
+  font-size: 2rem;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #313841;
+}
+button {
+  background: transparent;
+  background-color: #1c242b;
+  outline: 0;
+  border: 0;
+  font-size: 26px;
+  padding: 8px;
+  border-radius: 4px;
+  z-index: 2;
+}
+
+main {
+  width: 30%;
+}
+
+div {
+  margin: 5rem 0;
+  position: relative;
+}
+
+span.delete {
+  font-family: 'Trebuchet MS';
+  font-weight: 300;
+  font-size: 20px;
+  color: rgb(210, 211, 213);
+  display: inline-block;
+  height: 1.9rem;
+  width: 8rem;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  padding-top: 0.65rem;
+  opacity: 0;
+}
+span.questionmark {
+  font-family: 'Trebuchet MS';
+  font-weight: 300;
+  font-size: 20px;
+  color: rgb(210, 211, 213);
+  display: none;
+  height: 1.9rem;
+  width: 8rem;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  padding-top: 0.65rem;
+  opacity: 0;
+}
+span.done {
+  font-family: 'Trebuchet MS';
+  font-weight: 300;
+  font-size: 20px;
+  color: rgb(210, 211, 213);
+  display: none;
+  height: 1.9rem;
+  width: 8rem;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  padding-top: 0.65rem;
+  opacity: 1;
+}
+
+i.trash {
+  color: rgb(210, 211, 213);
+  background-color: #1c242b;
+  z-index: 2;
+  display: block;
+}
+i.question {
+  color: rgb(210, 100, 50);
+  z-index: 2;
+  display: none;
+}
+i.confirm {
+  color: rgb(0, 170, 0);
+  display: none;
+}
+
+button[data-action='delete'] ~ span.delete {
+  background-color: rgb(173, 0, 0);
+  border-radius: 4px;
+  padding-left: 2px;
+}
+button[data-action='delete'] ~ span.questionmark {
+  background-color: rgb(189, 90, 44);
+  border-radius: 4px;
+  padding-left: 2px;
+}
+button[data-action='delete'] ~ span.done {
+  background-color: rgb(0, 150, 0);
+  border-radius: 4px;
+  padding-left: 2px;
+}
+i.trash:hover {
+  cursor: pointer;
+  color: rgb(209, 0, 0);
+  transition: 0.3s;
+}
+i.question:hover {
+  cursor: pointer;
+}
+
+button[data-action]:hover ~ span.delete {
+  transition: opacity 1s;
+  opacity: 1;
+}
+button[data-action]:hover ~ span.questionmark {
+  transition: opacity 1s;
+  opacity: 1;
+}
+
+.arrow {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin: 0;
+  border-top: 0.5rem solid transparent;
+  border-bottom: 0.5rem solid transparent;
+  border-left: 0.5rem solid rgb(29, 36, 42);
+  position: absolute;
+  left: 2.2rem;
+  top: 0.8rem;
+  z-index: 1;
+  opacity: 0;
+}
+
+button[data-action]:hover + div {
+  opacity: 1;
+}
