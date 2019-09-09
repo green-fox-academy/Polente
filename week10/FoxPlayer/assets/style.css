@@ -1,4 +1,45 @@
-h1 {
-  font-size: 123px;
-  color: red;
+#container {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(224, 224, 224);
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+  grid-template-rows: repeat(7, 1fr);
+}
+.logo {
+  background-color: aquamarine;
+  grid-row: 1 / 3;
+}
+.artwork {
+  background-color: green;
+  grid-column: 2/3;
+  grid-row: 1/3;
+}
+.playlists {
+  background-color: blueviolet;
+  grid-row: 3 / 7;
+  grid-column: 1 /3;
+}
+.current {
+  background-color: coral;
+  grid-column: 3 / 4;
+  grid-row: 1 /3;
+}
+.tracks {
+  background-color: crimson;
+  grid-column: 3 /4;
+  grid-row: 3 /7;
+}
+.media {
+  background-color: cornflowerblue;
+  grid-column: 1/4;
+  grid-row: 7 /8;
+}
+.playerLogo {
+  height: 150px;
+  width: 150px;
+}
+
+audio {
+  width: 100%;
 }

@@ -6,12 +6,21 @@
     <title>FoxPlayer</title>
   </head>
   <body>
-    <figure>
-      <figcaption>Listen to Purple Drift:</figcaption>
-      <audio controls="controls">
-        <source src="./music/Organoid_-_09_-_Purple_Drift.mp3" />
-      </audio>
-    </figure>
+    <div id="container">
+      <div class="logo">
+        <img class="playerLogo" src="./img/foxplayer.png" />
+      </div>
+      <div class="artwork"></div>
+      <div class="current"></div>
+      <div class="playlists"></div>
+      <div class="tracks"></div>
+      <div class="media">
+        <figure>
+          <figcaption>Listen to Purple Drift:</figcaption>
+          <audio controls="controls"></audio>
+        </figure>
+      </div>
+    </div>
 
     <script src="./main.js"></script>
   </body>
