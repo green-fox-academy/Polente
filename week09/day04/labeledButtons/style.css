@@ -4,7 +4,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #313841;
+  background-color: rgb(192, 204, 214);
 }
 button {
   background: transparent;
