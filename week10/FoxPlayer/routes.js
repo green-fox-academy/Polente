@@ -2,43 +2,42 @@
 
 const express = require('express');
 const app = express();
+const mysql = require('mysql');
 
+// app.use(express.urlencoded());
 app.use(express.static('assets'));
 app.use(express.json());
+
+const connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'burrito',
+  database: 'FoxPlayer'
+});
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
 });
 
-app.get('/playlists', (req, res) => {
-  res.send(
-    JSON.stringify([
-      { id: 1, title: 'Favorites', system: 1 },
-      { id: 2, title: 'Music for programming', system: 0 },
-      { id: 3, title: 'Driving', system: 0 },
-      { id: 5, title: 'Fox house', system: 0 }
-    ])
+app.post('/playlists', (req, res) => {
+  //   console.log(req.body);
+  connection.query(
+    'SELECT * FROM Tracks where name=?',
+    req.body.song,
+    (err, rows) => {
+      res.send(rows);
+    }
   );
 });
 
 app.get('/playlists/:id', (req, res) => {
-  console.log(req.params.id);
-  switch (req.params.id) {
-    case '1':
-      res.send(JSON.stringify({ id: 1, title: 'Favorites', system: 1 }));
-      break;
-    case '2':
-      res.send(
-        JSON.stringify({ id: 2, title: 'Music for programming', system: 0 })
-      );
-      break;
-    case '3':
-      res.send(JSON.stringify({ id: 3, title: 'Driving', system: 0 }));
-      break;
-    case '5':
-      res.send(JSON.stringify({ id: 5, title: 'Fox house', system: 0 }));
-      break;
-  }
+  connection.query(
+    'SELECT * FROM Playlists where playlist_id =?',
+    req.params.id,
+    (err, rows) => {
+      res.send(rows);
+    }
+  );
 });
 
 module.exports = app;
