@@ -46,4 +46,14 @@ app.get('/playlists/:id', (req, res) => {
   );
 });
 
+app.post('/tracks', (req, res) => {
+  connection.query(
+    'SELECT name FROM Tracks WHERE playlist_id = ?',
+    req.body.playlist_id,
+    (err, rows) => {
+      res.send(rows);
+    }
+  );
+});
+
 module.exports = app;

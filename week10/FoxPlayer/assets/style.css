@@ -1,4 +1,5 @@
 #container {
+  font-family: 'Trebuchet MS';
   width: 100%;
   height: 100%;
   background-color: rgb(224, 224, 224);
@@ -55,4 +56,12 @@
 
 audio {
   width: 100%;
+}
+
+.tracks > p:hover {
+  cursor: pointer;
+}
+
+.playlists > p:hover {
+  cursor: pointer;
 }
