@@ -19,6 +19,12 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
 });
 
+app.get('/playlists', (req, res) => {
+  //   console.log(req.body);
+  connection.query('SELECT * FROM Playlists', (err, rows) => {
+    res.send(rows);
+  });
+});
 app.post('/playlists', (req, res) => {
   //   console.log(req.body);
   connection.query(

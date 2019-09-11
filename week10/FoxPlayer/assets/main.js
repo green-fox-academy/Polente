@@ -40,24 +40,56 @@ function setAudioSRC(path) {
 
 form.addEventListener('submit', event => {
   event.preventDefault();
-  const xhr = new XMLHttpRequest();
-  xhr.onreadystatechange = () => {
-    if (xhr.readyState === XMLHttpRequest.DONE) {
-      if (xhr.status >= 200 && xhr.status < 300) {
-        setAudioSRC(JSON.parse(xhr.responseText)[0].path);
-      } else {
-        console.log('something is wrong mate');
-      }
-    }
-  };
-  xhr.open('POST', '/playlists');
-  xhr.setRequestHeader('Content-Type', 'application/json');
-  xhr.send(JSON.stringify({ song: song.value }));
+  // const xhr = new XMLHttpRequest();
+  // xhr.onreadystatechange = () => {
+  //   if (xhr.readyState === XMLHttpRequest.DONE) {
+  //     if (xhr.status >= 200 && xhr.status < 300) {
+  //       setAudioSRC(JSON.parse(xhr.responseText)[0].path);
+  //     } else {
+  //       console.log('something is wrong mate');
+  //     }
+  //   }
+  // };
+  // xhr.open('POST', '/playlists');
+  // xhr.setRequestHeader('Content-Type', 'application/json');
+  // xhr.send(JSON.stringify({ song: song.value }));
+
+  fetch('/playlists', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ song: song.value })
+  })
+    .then(res => res.json())
+    .then(res => setAudioSRC(res[0].path));
+
   form.reset();
 });
 
-function appendPtag(parent) {
-  let p = document.createElement('p');
-  // p.innerHTML =
-  parent.appendChild(p);
+function renderPlaylists() {
+  const xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status >= 200) {
+        appendPtag(JSON.parse(xhr.responseText));
+      } else {
+        console.log('something fishy is going on');
+      }
+    }
+  };
+  xhr.open('GET', '/playlists');
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.send();
 }
+
+function appendPtag(data) {
+  console.log(data);
+  playlists.insertAdjacentHTML('beforeend', '<br />');
+
+  for (let i = 0; i < data.length; i++) {
+    playlists.insertAdjacentHTML('beforeend', data[i].title + '<br />');
+  }
+}
+
+fetch('/playlists')
+  .then(res => res.json())
+  .then(appendPtag);
