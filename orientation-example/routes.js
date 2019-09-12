@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
 });
 app.get('/links', (req, res) => {
   connection.query('SELECT * FROM Links', (err, rows) => {
-    console.log(rows.length);
+    // console.log(rows.length);
     res.send(rows);
   });
 });
@@ -41,6 +41,70 @@ app.post('/api/links', (req, res) => {
               res.status(400).send(err.message);
             } else {
               res.status(201).send({ created: 'alias created' });
+            }
+          }
+        );
+      }
+    }
+  );
+});
+
+app.get('/a/:alias', (req, res) => {
+  connection.query(
+    'SELECT alias FROM Links where alias=?',
+    req.params.alias,
+    (err, rows) => {
+      if (rows.length > 0) {
+        connection.query(
+          'SELECT hitCount FROM Links where alias=?',
+          req.params.alias,
+          (err, rows) => {
+            let newCount = rows[0].hitCount + 1;
+            connection.query(
+              'UPDATE Links SET hitCount=? WHERE alias=?',
+              [newCount, req.params.alias],
+              (err, rows) => {
+                if (err) {
+                  console.log(err.message);
+                } else {
+                  res.send({ message: 'hitCount increased' });
+                }
+              }
+            );
+          }
+        );
+      } else {
+        res.status(404);
+      }
+    }
+  );
+});
+
+app.get('/api/links', (req, res) => {
+  connection.query(
+    'SELECT id, url, alias, hitCount FROM Links',
+    (err, rows) => {
+      res.send(rows);
+    }
+  );
+});
+
+app.delete('/api/links/:id', (req, res) => {
+  connection.query(
+    'SELECT * FROM Links where id=?',
+    req.params.id,
+    (err, rows) => {
+      if (rows.length > 0) {
+        connection.query(
+          'DELETE FROM Links WHERE id=?',
+          req.params.id,
+          (err, rows) => {
+            if (err) {
+              console.log(err.message);
+            } else {
+              res.send({
+                message: 'You have successfully deleted your alias.'
+              });
             }
           }
         );
