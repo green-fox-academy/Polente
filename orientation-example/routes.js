@@ -96,16 +96,22 @@ app.delete('/api/links/:id', (req, res) => {
     (err, rows) => {
       if (rows.length > 0) {
         connection.query(
-          'DELETE FROM Links WHERE id=?',
-          req.params.id,
+          'SELECT * FROM Links where secretCode=?',
+          req.body.secretCode,
           (err, rows) => {
-            if (err) {
-              console.log(err.message);
-            } else {
-              res.send({
-                message: 'You have successfully deleted your alias.'
-              });
-            }
+            connection.query(
+              'DELETE FROM Links WHERE id=? AND secretCode=?',
+              [req.params.id, req.body.secretCode],
+              (err, rows) => {
+                if (err) {
+                  console.log(err.message);
+                } else {
+                  res.send({
+                    message: 'You have successfully deleted your alias.'
+                  });
+                }
+              }
+            );
           }
         );
       }
