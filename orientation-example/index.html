@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>URL Aliaser</title>
+  </head>
+  <body>
+    <div class="container">
+      <p class="fail">Your alias already in use!</p>
+      <p class="done">Alias created successfuly!</p>
+      <form action="/api/links" method="POST">
+        <label for="url">URL</label>
+        <input type="text" id="url" name="url" required />
+        <label for="alias">Alias</label>
+        <input type="text" id="alias" name="alias" required />
+        <input type="submit" />
+      </form>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

@@ -26,12 +26,16 @@ app.get('/playlists', (req, res) => {
   });
 });
 app.post('/playlists', (req, res) => {
-  //   console.log(req.body);
+  console.log(req.body);
   connection.query(
-    'SELECT * FROM Tracks where name=?',
-    req.body.song,
+    'INSERT INTO Playlists(title,playlist_id) VALUES(?,6)',
+    req.body.title,
     (err, rows) => {
-      res.send(rows);
+      if (err) {
+        console.log(err);
+      } else {
+        res.status(200).send(rows);
+      }
     }
   );
 });
@@ -48,12 +52,27 @@ app.get('/playlists/:id', (req, res) => {
 
 app.post('/tracks', (req, res) => {
   connection.query(
-    'SELECT name FROM Tracks WHERE playlist_id = ?',
+    'SELECT name, duration FROM Tracks WHERE playlist_id = ?',
     req.body.playlist_id,
     (err, rows) => {
       res.send(rows);
     }
   );
+});
+app.get('/tracks/:id', (req, res) => {
+  connection.query(
+    'SELECT name FROM Tracks where track_id =?',
+    req.params.id,
+    (err, rows) => {
+      res.send(rows);
+    }
+  );
+});
+
+app.get('/tracks', (req, res) => {
+  connection.query('SELECT * FROM Tracks', (err, rows) => {
+    res.send(rows);
+  });
 });
 
 module.exports = app;

@@ -5,26 +5,34 @@ const audio = document.querySelector('audio');
 const form = document.querySelector('form');
 const playlists = document.querySelector('.playlists');
 const tracks = document.querySelector('.tracks');
+const current = document.querySelector('.current');
+const plusButton = document.querySelector('.fa-plus');
 
 body.addEventListener('click', e => {
   switch (e.target.innerHTML) {
     case 'Night Owl':
       setAudioSRC('/music/Tours_-_01_-_Enthusiast.mp3');
-      break;
-
-    case 'Enthusiast':
-      setAudioSRC('/music/Broke_For_Free_-_01_-_Night_Owl.mp3');
+      fetch('/tracks/2')
+        .then(res => res.json())
+        .then(appendCurrent);
       break;
 
     case 'Purple Drift':
       setAudioSRC('/music/Organoid_-_09_-_Purple_Drift.mp3');
+      fetch('/tracks/3')
+        .then(res => res.json())
+        .then(appendCurrent);
       break;
+
+    case 'Enthusiast':
+      setAudioSRC('/music/Broke_For_Free_-_01_-_Night_Owl.mp3');
+      fetch('/tracks/4')
+        .then(res => res.json())
+        .then(appendCurrent);
+      break;
+
     case 'All Tracks':
-      fetch('/tracks', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ playlist_id: 0 })
-      })
+      fetch('/tracks')
         .then(res => res.json())
         .then(appendTracks);
       break;
@@ -143,6 +151,20 @@ function setAudioSRC(path) {
 //   xhr.send();
 // }
 
+plusButton.addEventListener('click', e => {
+  let listTitle = prompt('Please provide a playlist name');
+  // console.log(listName.toLocaleLowerCase());
+  fetch('/playlists', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ title: listTitle.toLocaleLowerCase() })
+  })
+    .then(res => res.text())
+    .then(console.log);
+});
+
+function addPlaylist(data) {}
+
 function appendPlaylists(data) {
   for (let i = 0; i < data.length; i++) {
     let p = document.createElement('p');
@@ -155,6 +177,17 @@ function appendTracks(data) {
     let p = document.createElement('p');
     p.innerHTML = data[i].name;
     tracks.appendChild(p);
+  }
+}
+function appendCurrent(data) {
+  let list = document.querySelectorAll('.current > p');
+  if (list.length == 0) {
+    let p = document.createElement('p');
+    p.innerHTML = data[0].name;
+    current.appendChild(p);
+    console.log(list[0]);
+  } else {
+    list[0].innerHTML = data[0].name;
   }
 }
 

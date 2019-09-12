@@ -1,0 +1,31 @@
+body {
+  background-color: #3333;
+  font-size: 24px;
+}
+.fail {
+  display: none;
+  color: red;
+  font-size: 16px;
+}
+.done {
+  display: none;
+  color: green;
+  font-size: 16px;
+}
+.container {
+  max-width: 500px;
+  text-align: center;
+  background-color: #fff;
+  margin: 0 auto;
+  margin-top: 10%;
+  padding: 40px;
+}
+input {
+  display: block;
+  margin: auto;
+}
+
+input[type='submit'] {
+  font-size: 20px;
+  margin-top: 20px;
+}
