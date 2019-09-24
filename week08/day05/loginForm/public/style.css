@@ -1,62 +1,126 @@
 body {
-    background-color: rgb(235, 235, 235);
-    font-family: 'B612 Mono';
+  background-color: rgb(235, 235, 235);
+  font-family: 'B612 Mono';
 }
 
-div {
-    margin: auto;
-    padding: 20px;
-    width: 25%;
-    width: 600px;
-    height: 600px;
-    background-color: #fff;
+.container {
+  margin: 0 auto;
+  padding: 20px;
+  width: 25%;
+  width: 600px;
+  height: 400px;
+  background-color: #fff;
 }
 
-img {
-    margin-left: 22%;
+.logo {
+  margin-left: 22%;
 }
 
 .pass {
-    position: absolute;
-    margin-left: 30%;
-    TOP: 480px;
-
+  position: absolute;
+  margin-left: 30%;
+  top: 480px;
 }
 
 p {
-    margin-top: 30px;
-    margin-left: 50px;
-    font-weight: 0;
-    font-size: 40px;
+  margin-top: 30px;
+  margin-left: 50px;
+  font-weight: 0;
+  font-size: 40px;
 }
 
 label {
-    display: block;
-    margin: 10px 50px;
-    font-size: 16px;
+  display: block;
+  margin: 10px 50px;
+  font-size: 16px;
 }
 
 input {
-    padding: 10px;
-    padding-right: 120px;
-    font-size: 30px;
-    margin: 10px 50px;
-    box-shadow: 5px 10px #0000;
-    border-radius: 3px;
+  padding: 10px;
+  padding-right: 120px;
+  font-size: 30px;
+  margin: 10px 50px;
+  box-shadow: 5px 10px #0000;
+  border-radius: 3px;
 }
 
-
-input[type=submit] {
-    display: block;
-    padding: 10px 30px;
-    background-color: rgb(51, 51, 51);
-    font-size: 18px;
-    font-weight: 300;
-    color: #fff;
-    border-radius: 20px;
+input[type='submit'] {
+  display: inline-block;
+  padding: 10px 30px;
+  background-color: rgb(51, 51, 51);
+  font-size: 18px;
+  font-weight: 300;
+  color: #fff;
+  border-radius: 20px;
+  margin-right: 0px;
 }
-
+label[for='forgot'] {
+  outline: none;
+  display: flex;
+  float: right;
+  text-decoration: underline;
+  margin: 25px 65px 0px 0px;
+  font-size: 10pt;
+  width: 40%;
+}
 input:focus {
-    border: solid 2px rgb(100, 168, 89);
-    outline: none;
+  border: solid 2px rgb(100, 168, 89);
+  outline: none;
+}
+
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.1);
+  transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 1rem 1.5rem;
+  width: 24rem;
+  border-radius: 0.5rem;
+}
+.close-button {
+  float: right;
+  width: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  background-color: lightgray;
+}
+.close-button:hover {
+  background-color: darkgray;
+}
+.show-modal {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+input[name='loginname'] {
+  font-size: 14pt;
+}
+input[name='secret'] {
+  font-size: 14pt;
+}
+
+.popUP {
+  display: block;
+}
+
+.recievedPassword {
+  display: none;
+  font-size: 14pt;
 }

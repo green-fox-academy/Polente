@@ -40,7 +40,8 @@ form.addEventListener('submit', event => {
       }
       return resp;
     })
-    .then(res => res.json());
+    .then(res => res.json())
+    .then(console.log);
   form.reset();
 });
 

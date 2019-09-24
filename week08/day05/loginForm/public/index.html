@@ -1,28 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Login Form</title>
     <canvas id="myCanvas"></canvas>
-    <link rel="stylesheet" type="text/css" href="style.css">
-</head>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
 
-<body>
-    <img src="./logo.png" alt="logo" />
-    <div>
-
-        <p>ACCOUNT LOGIN</p>
-        <form action="">
-            <label for="username">USERNAME</label>
-            <input type="text" id="username" name="username" required autofocus />
-            <label for="password">PASSWORD</label>
-            <input type="password" id="password" name="password" required />
-            <input type="submit" value="Login" />
-        </form>
-        <img src="eye-open.png" alt="eye" class="pass">
+  <body>
+    <img class="logo" src="./logo.png" alt="logo" />
+    <div class="container">
+      <p>ACCOUNT LOGIN</p>
+      <form action="">
+        <label for="username">USERNAME</label>
+        <input type="text" id="username" name="username" required autofocus />
+        <label for="password">PASSWORD</label>
+        <input type="password" id="password" name="password" required />
+        <div class="eye-front">
+          <img src="eye-open.png" alt="eye" class="pass" />
+        </div>
+        <input type="submit" value="Login" />
+        <label class="forgot" for="forgot">Forgot Your Password?</label>
+      </form>
+      <div class="modal">
+        <div class="modal-content">
+          <span class="close-button">×</span>
+          <p class="recievedPassword">Your password is :</p>
+          <form class="popUP">
+            <label for="id">Please provide your username:</label>
+            <input type="text" id="loginname" name="loginname" required />
+            <label for="secret">Please provide your secret code:</label>
+            <input type="text" id="secret" name="secret" required />
+            <input id="request" type="submit" value="Request" />
+          </form>
+        </div>
+      </div>
     </div>
     <script src="main.js"></script>
-</body>
-
+  </body>
 </html>

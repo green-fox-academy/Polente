@@ -40,7 +40,7 @@ app.post('/api/links', (req, res) => {
             if (err) {
               res.status(400).send(err.message);
             } else {
-              res.status(201).send({ created: 'alias created' });
+              res.status(201).send({ secretCode: code });
             }
           }
         );
